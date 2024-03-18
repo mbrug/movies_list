@@ -1,6 +1,6 @@
-import Loading from "../components/layout/loading.tsx";
 import {useNavigate, useParams} from "react-router-dom";
 import useMovieDetails from "../hooks/movie-details-hooks.ts";
+import Loading from "../components/layout/loading.tsx";
 import placeholderImage from "../assets/thumbnail.png"
 
 const MovieDetail = () => {

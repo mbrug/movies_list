@@ -1,7 +1,7 @@
-import {useAppDispatch} from "../../store/actionTypes.ts";
-import {useSelector} from "react-redux";
-import {selectSearchParams} from "../../store/actions/movieActions.ts";
 import {useMemo} from "react";
+import {useSelector} from "react-redux";
+import {useAppDispatch} from "../../store/actionTypes.ts";
+import {selectSearchParams} from "../../store/actions/movieActions.ts";
 import {setSearchPage} from "../../store/reducers/moviesReducer.ts";
 
 const Pagination = () => {

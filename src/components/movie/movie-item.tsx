@@ -1,11 +1,11 @@
 import React from "react";
-import {useDispatch} from "react-redux";
 import {Link} from "react-router-dom";
+import {useDispatch} from "react-redux";
 import {setSelectedMovie} from "../../store/reducers/moviesReducer.ts";
-import useMovieDetail from "../../movie-detail.ts";
+import {Movie} from "../../store/actionTypes.ts";
+import useMovieDetails from "../../hooks/movie-details-hooks.ts";
 import Rating from "./rating.tsx";
 import Description from "./description.tsx";
-import {Movie} from "../../store/actionTypes.ts";
 import placeholderImage from "../../assets/thumbnail.png"
 
 interface MovieItemProps {
@@ -14,7 +14,7 @@ interface MovieItemProps {
 
 const MovieItem: React.FC<MovieItemProps> = ({ movie }) => {
     const dispatch = useDispatch();
-    const { movieDetails, loading } = useMovieDetail(movie.imdbID);
+    const { movieDetails, loading } = useMovieDetails(movie.imdbID);
 
     const handleDetailsClick = () => {
         if(movieDetails) {

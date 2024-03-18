@@ -1,3 +1,4 @@
+import {useEffect} from "react";
 import {useAppDispatch} from "../store/actionTypes.ts";
 import {useSelector} from "react-redux";
 import {
@@ -5,7 +6,6 @@ import {
     selectMovies,
     selectSearchParams
 } from "../store/actions/movieActions.ts";
-import {useEffect} from "react";
 import MovieList from "../components/movie/movie-list.tsx";
 import SearchBar from "../components/layout/search-bar.tsx";
 
