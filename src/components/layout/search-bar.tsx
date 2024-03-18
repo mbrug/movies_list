@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import {useAppDispatch} from "../../store/actionTypes.ts";
-import {searchMoviesAsync, selectSearchParams} from "../../store/actions/movieActions.ts";
+import {selectSearchParams} from "../../store/actions/movieActions.ts";
 import {setSearchParams} from "../../store/reducers/moviesReducer.ts";
 
 
@@ -18,7 +18,6 @@ const SearchBar = () => {
 
     const handleSearch = () => {
         dispatch(setSearchParams({ query: searchTerm, year: yearTerm, page: 1, totalResults: 0}));
-        dispatch(searchMoviesAsync());
     };
 
     return (

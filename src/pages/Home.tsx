@@ -3,26 +3,41 @@ import {useAppDispatch} from "../store/actionTypes.ts";
 import {useSelector} from "react-redux";
 import {
     searchMoviesAsync,
-    selectMovies,
+    selectMovies, selectMoviesError, selectMoviesLoading,
     selectSearchParams
 } from "../store/actions/movieActions.ts";
 import MovieList from "../components/movie/movie-list.tsx";
 import SearchBar from "../components/layout/search-bar.tsx";
+import Loading from "../components/layout/loading.tsx";
+import ErrorMessage from "../components/layout/error-message.tsx";
+import {setMoviesError} from "../store/reducers/moviesReducer.ts";
 
 const Home = () => {
     const dispatch = useAppDispatch();
     const movies = useSelector(selectMovies);
-    const { query, year, page } = useSelector(selectSearchParams);
+    const error = useSelector(selectMoviesError);
+    const loading = useSelector(selectMoviesLoading);
+    const {query, year, page} = useSelector(selectSearchParams);
 
     useEffect(() => {
-        dispatch(searchMoviesAsync());
+        if (query.trim() === "") {
+            dispatch(setMoviesError("Debe escribir un patrón de búsqueda"));
+        } else {
+            dispatch(searchMoviesAsync());
+        }
     }, [query, year, page, dispatch]);
 
     return (
         <div>
-            <SearchBar />
+            <SearchBar/>
             <div className="pt-14">
-                <MovieList movies={movies} />
+                {loading ? (
+                    <Loading/>
+                ) : error ? (
+                    <ErrorMessage message={error} />
+                ) : (
+                    <MovieList movies={movies}/>
+                )}
             </div>
         </div>
     );
