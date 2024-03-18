@@ -22,7 +22,7 @@ const Home = () => {
         <div>
             <SearchBar />
             <div className="pt-14">
-                    <MovieList movies={movies} />
+                <MovieList movies={movies} />
             </div>
         </div>
     );
