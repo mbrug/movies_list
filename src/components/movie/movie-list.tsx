@@ -1,6 +1,7 @@
 import React from "react";
-import {Movie} from "../../store/actionTypes.ts";
 import MovieItem from "./movie-item.tsx";
+import Pagination from "../layout/pagination.tsx";
+import {Movie} from "../../store/actionTypes.ts";
 
 interface MovieListProps {
     movies: Movie[];
@@ -15,6 +16,7 @@ const MovieList: React.FC<MovieListProps> = ({ movies }) => {
                     <MovieItem key={movie.imdbID} movie={movie} />
                 ))}
             </div>
+            <Pagination />
         </>
     );
 };
