@@ -1,12 +1,12 @@
 import React from "react";
 import {useDispatch} from "react-redux";
 import {Link} from "react-router-dom";
-import {setSelectedMovie} from "../store/reducers/moviesReducer.ts";
-import useMovieDetail from "../movie-detail.ts";
+import {setSelectedMovie} from "../../store/reducers/moviesReducer.ts";
+import useMovieDetail from "../../movie-detail.ts";
 import Rating from "./rating.tsx";
 import Description from "./description.tsx";
-import {Movie} from "../store/actionTypes.ts";
-import placeholderImage from "../assets/thumbnail.png"
+import {Movie} from "../../store/actionTypes.ts";
+import placeholderImage from "../../assets/thumbnail.png"
 
 interface MovieItemProps {
     movie: Movie;

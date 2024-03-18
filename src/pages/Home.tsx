@@ -6,7 +6,8 @@ import {
     selectSearchParams
 } from "../store/actions/movieActions.ts";
 import {useEffect} from "react";
-import MovieList from "../components/movie-list.tsx";
+import MovieList from "../components/movie/movie-list.tsx";
+import SearchBar from "../components/layout/search-bar.tsx";
 
 const Home = () => {
     const dispatch = useAppDispatch();
@@ -19,7 +20,7 @@ const Home = () => {
 
     return (
         <div>
-            <div>SearchBar</div>
+            <SearchBar />
             <div className="pt-14">
                     <MovieList movies={movies} />
             </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import {Movie} from "../store/actionTypes.ts";
+import {Movie} from "../../store/actionTypes.ts";
 import MovieItem from "./movie-item.tsx";
 
 interface MovieListProps {
